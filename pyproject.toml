@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 packages = [
+    "nexusrag",
     "ragatouille",
     "ragatouille.models",
     "ragatouille.data",
@@ -12,31 +13,30 @@ packages = [
 ]
 
 [project]
-name = "RAGatouille" 
-version = "0.0.9post2"
-description = "Library to facilitate the use of state-of-the-art retrieval models in common RAG contexts."
-keywords = ["reranking", "retrieval", "rag", "nlp"]
+name = "nexusrag" 
+version = "1.0.0"
+description = "High-Performance Late-Interaction Multi-Vector Retrieval and Contextual RAG Engine by Sarthak Mun"
+keywords = ["reranking", "retrieval", "rag", "nlp", "colbert", "multi-vector", "embeddings"]
 authors = [
-  {name = "Ben Clavié", email = "bc@answer.ai" }
+  {name = "Sarthak Mun", email = "sarthak.mun03@gmail.com" }
 ]
 maintainers = [
-  {name = "Ben Clavié", email = "bc@answer.ai" }
+  {name = "Sarthak Mun", email = "sarthak.mun03@gmail.com" }
 ]
-license = {file = "LICENSE"}
+license = {text = "Apache-2.0"}
 readme = "README.md"
 
 dependencies = [
-  "llama-index",
+  "llama-index-core",
   "faiss-cpu",
-  "langchain_core",
-  "colbert-ai>=0.2.19",
-  "langchain",
-  "onnx",
-  "srsly",
-  "voyager",
+  "langchain-core",
+  "colbert-ai>=0.2.19; platform_system != 'Windows'",
   "torch>=1.13",
-  "fast-pytorch-kmeans",
+  "transformers>=4.30.0",
   "sentence-transformers",
+  "srsly",
+  "onnx",
+  "pydantic",
 ]
 
 [project.optional-dependencies]
@@ -46,12 +46,15 @@ all = [
     "rerankers",
     "voyager",
 ]
-llamaindex = ["llama-index"]
-langchain = ["langchain"]
-train = ["sentence-transformers", "pylate", "rerankers"]
+dev = [
+    "pytest>=7.0.0",
+    "ruff>=0.1.0",
+    "black>=23.0.0",
+]
 
 [project.urls]
-"Homepage" = "https://github.com/answerdotai/ragatouille"
+"Homepage" = "https://github.com/sarthakmun/nexusrag"
+"Repository" = "https://github.com/sarthakmun/nexusrag"
 
 [tool.pytest.ini_options]
 filterwarnings = [
