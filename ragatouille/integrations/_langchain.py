@@ -1,9 +1,20 @@
-from typing import Any, List, Optional, Sequence
+try:
+    from langchain.retrievers.document_compressors.base import BaseDocumentCompressor
+except (ImportError, ModuleNotFoundError):
+    try:
+        from langchain_core.documents.compressor import BaseDocumentCompressor
+    except (ImportError, ModuleNotFoundError):
+        class BaseDocumentCompressor:
+            pass
 
-from langchain.retrievers.document_compressors.base import BaseDocumentCompressor
 from langchain_core.callbacks.manager import CallbackManagerForRetrieverRun, Callbacks
 from langchain_core.documents import Document
-from langchain_core.retrievers import BaseRetriever
+
+try:
+    from langchain_core.retrievers import BaseRetriever
+except (ImportError, ModuleNotFoundError):
+    class BaseRetriever:
+        pass
 
 
 class RAGatouilleLangChainRetriever(BaseRetriever):

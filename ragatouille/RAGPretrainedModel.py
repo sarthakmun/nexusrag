@@ -2,8 +2,20 @@ from pathlib import Path
 from typing import Any, Callable, Dict, List, Literal, Optional, Tuple, TypeVar, Union
 from uuid import uuid4
 
-from langchain.retrievers.document_compressors.base import BaseDocumentCompressor
-from langchain_core.retrievers import BaseRetriever
+try:
+    from langchain.retrievers.document_compressors.base import BaseDocumentCompressor
+except (ImportError, ModuleNotFoundError):
+    try:
+        from langchain_core.documents.compressor import BaseDocumentCompressor
+    except (ImportError, ModuleNotFoundError):
+        class BaseDocumentCompressor:
+            pass
+
+try:
+    from langchain_core.retrievers import BaseRetriever
+except (ImportError, ModuleNotFoundError):
+    class BaseRetriever:
+        pass
 
 from ragatouille.data.corpus_processor import CorpusProcessor
 from ragatouille.data.preprocessors import llama_index_sentence_splitter
