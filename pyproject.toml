@@ -32,6 +32,8 @@ dependencies = [
   "langchain-core",
   "langchain",
   "langchain-community",
+  "fast-pytorch-kmeans",
+  "voyager",
   "colbert-ai>=0.2.19; platform_system != 'Windows'",
   "torch>=1.13",
   "transformers>=4.30.0",
