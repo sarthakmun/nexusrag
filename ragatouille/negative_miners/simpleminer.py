@@ -3,9 +3,17 @@ from pathlib import Path
 from typing import Literal, Optional, Union
 
 import torch
-from sentence_transformers import SentenceTransformer
+try:
+    from sentence_transformers import SentenceTransformer
+except (ImportError, ModuleNotFoundError):
+    SentenceTransformer = None
+
 from tqdm import tqdm
-from voyager import Index, Space, StorageDataType
+
+try:
+    from voyager import Index, Space, StorageDataType
+except (ImportError, ModuleNotFoundError):
+    Index, Space, StorageDataType = None, None, None
 
 from .base import HardNegativeMiner
 

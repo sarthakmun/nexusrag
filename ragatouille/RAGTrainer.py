@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Literal, Optional, Union
 
-from colbert.infra import ColBERTConfig
+from ragatouille.models._colbert_fallbacks import ColBERTConfig
 
 from ragatouille.data import TrainingDataProcessor
 from ragatouille.models import ColBERT, LateInteractionModel

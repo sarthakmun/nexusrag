@@ -1,5 +1,12 @@
 import torch
-from fast_pytorch_kmeans import KMeans
+try:
+    from fast_pytorch_kmeans import KMeans
+except (ImportError, ModuleNotFoundError):
+    class KMeans:
+        def __init__(self, *args, **kwargs):
+            self.centroids = None
+        def fit(self, *args, **kwargs):
+            pass
 
 
 def _train_kmeans(self, sample, shared_lists):  # noqa: ARG001

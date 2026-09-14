@@ -6,8 +6,7 @@ from typing import Union
 
 import torch
 import torch.nn as nn
-from colbert.infra import ColBERTConfig
-from colbert.modeling.colbert import ColBERT
+from ragatouille.models._colbert_fallbacks import ColBERTConfig, ColBERTModel as ColBERT
 from huggingface_hub import HfApi
 from huggingface_hub.utils import HfHubHTTPError
 from transformers import AutoModel, BertPreTrainedModel

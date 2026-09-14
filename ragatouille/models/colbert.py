@@ -5,12 +5,38 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Literal, Optional, TypeVar, Union
 
-import numpy as np
-import srsly
+try:
+    import srsly
+except (ImportError, ModuleNotFoundError):
+    import json
+    class _SrslyFallback:
+        @staticmethod
+        def read_json(path):
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        @staticmethod
+        def write_json(path, data):
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(data, f)
+        @staticmethod
+        def read_jsonl(path):
+            with open(path, "r", encoding="utf-8") as f:
+                return [json.loads(line) for line in f if line.strip()]
+        @staticmethod
+        def write_jsonl(path, data):
+            with open(path, "w", encoding="utf-8") as f:
+                for item in data:
+                    f.write(json.dumps(item) + "\n")
+    srsly = _SrslyFallback()
 import torch
-from colbert import Trainer
-from colbert.infra import ColBERTConfig, Run, RunConfig
-from colbert.modeling.checkpoint import Checkpoint
+
+from ragatouille.models._colbert_fallbacks import (
+    Checkpoint,
+    ColBERTConfig,
+    Run,
+    RunConfig,
+    Trainer,
+)
 
 from ragatouille.models.base import LateInteractionModel
 from ragatouille.models.index import ModelIndex, ModelIndexFactory
