@@ -3,7 +3,6 @@
 [![Build & Test](https://github.com/sarthakmun/nexusrag/actions/workflows/ci.yml/badge.svg)](https://github.com/sarthakmun/nexusrag/actions/workflows/ci.yml)
 [![Python Version](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11-blue.svg)](https://github.com/sarthakmun/nexusrag)
 [![Framework](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Retrieval](https://img.shields.io/badge/Architecture-Late--Interaction%20(ColBERTv2)-orange.svg)](https://github.com/sarthakmun/nexusrag)
 [![Author](https://img.shields.io/badge/Author-Sarthak%20Mun-blueviolet.svg)](https://github.com/sarthakmun)
 
@@ -150,12 +149,6 @@ Run the automated test suite locally:
 # Run unit and integration tests
 pytest tests/ -v
 ```
-
----
-
-## 📜 License
-
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ---
 
