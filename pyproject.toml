@@ -30,6 +30,8 @@ dependencies = [
   "llama-index-core",
   "faiss-cpu",
   "langchain-core",
+  "langchain",
+  "langchain-community",
   "colbert-ai>=0.2.19; platform_system != 'Windows'",
   "torch>=1.13",
   "transformers>=4.30.0",
