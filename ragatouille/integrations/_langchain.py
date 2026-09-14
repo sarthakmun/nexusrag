@@ -1,3 +1,5 @@
+from typing import Any, List, Optional, Sequence
+
 try:
     from langchain.retrievers.document_compressors.base import BaseDocumentCompressor
 except (ImportError, ModuleNotFoundError):
