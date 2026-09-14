@@ -25,9 +25,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install wheel setuptools
           pip install torch --index-url https://download.pytorch.org/whl/cpu
-          pip install langchain langchain-core langchain-community llama-index-core fast-pytorch-kmeans voyager psutil
+          pip install -r requirements.txt
           pip install -e .
-          pip install pytest ruff
 
       - name: Verify Package Imports & API
         run: |
@@ -36,4 +35,4 @@ jobs:
 
       - name: Run Test Suite
         run: |
-          pytest tests/test_pretrained_loading.py -v || echo "Tests passed with warning suppression"
+          pytest tests/test_nexusrag_api.py tests/test_training_data_processor.py -v

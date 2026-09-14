@@ -131,7 +131,7 @@ local/
 
 .vscode/
 
-.devcontainer/
 *.json
 *.log
-*.txt
+*_log.txt
+!requirements.txt

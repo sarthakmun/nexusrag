@@ -9,8 +9,21 @@ except (ImportError, ModuleNotFoundError):
         class BaseDocumentCompressor:
             pass
 
-from langchain_core.callbacks.manager import CallbackManagerForRetrieverRun, Callbacks
-from langchain_core.documents import Document
+try:
+    from langchain_core.callbacks.manager import CallbackManagerForRetrieverRun, Callbacks
+    from langchain_core.documents import Document
+except (ImportError, ModuleNotFoundError):
+    try:
+        from langchain.callbacks.manager import CallbackManagerForRetrieverRun, Callbacks
+        from langchain.docstore.document import Document
+    except (ImportError, ModuleNotFoundError):
+        class CallbackManagerForRetrieverRun:
+            pass
+        Callbacks = Any
+        class Document:
+            def __init__(self, page_content="", metadata=None):
+                self.page_content = page_content
+                self.metadata = metadata or {}
 
 try:
     from langchain_core.retrievers import BaseRetriever

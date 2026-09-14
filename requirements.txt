@@ -1,0 +1,19 @@
+torch>=1.13
+transformers>=4.30.0
+sentence-transformers
+srsly
+faiss-cpu
+fast-pytorch-kmeans
+psutil
+voyager
+colbert-ai>=0.2.19; platform_system != 'Windows'
+langchain-core
+langchain
+langchain-community
+llama-index-core
+onnx
+pydantic
+pytest
+ruff
+wheel
+setuptools
